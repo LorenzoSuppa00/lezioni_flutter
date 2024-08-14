@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,11 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
       home: const MyHomePage(
-        title: 'Home Page'
+        title: 'Listview'
       ),
     );
   }
@@ -35,36 +35,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<int> numeri = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         leading: const Icon(Icons.fastfood_rounded),
-        backgroundColor: Colors.amber,
-        foregroundColor: Colors.white,
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-        elevation: 12,
+        backgroundColor: Colors.blueGrey,
+        foregroundColor: Colors.black,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        elevation: 5, // Altezza ombra AppBar
         shadowColor: Colors.black,
-        titleTextStyle: const TextStyle(fontFamily: 'Oswald', fontSize: 20)     
+        titleTextStyle: const TextStyle(fontFamily: 'Oswald', fontSize: 20, color: Colors.black)     
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Image.asset('images/pizza.png', fit: BoxFit.cover),
-            const Text(
-              'Hai cliccato su +',
-              style: TextStyle(
-                fontFamily: 'Oswald',
-                fontSize: 30
-              ),
-            ),
-          ],
-        ),
-      ),
+    body: ListView.builder(
+      padding: const EdgeInsets.all(8),
+      itemBuilder:(context, index) {
+        return Container(
+          color: Colors.amber,
+          height: 200,
+        );
+      },
+    )
     );
   }
 }

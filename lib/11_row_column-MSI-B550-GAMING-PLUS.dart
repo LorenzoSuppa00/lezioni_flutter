@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(
-        title: 'Home Page'
+        title: 'Row e Column'
       ),
     );
   }
@@ -41,27 +42,23 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         leading: const Icon(Icons.fastfood_rounded),
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.green,
         foregroundColor: Colors.white,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         elevation: 12,
         shadowColor: Colors.black,
         titleTextStyle: const TextStyle(fontFamily: 'Oswald', fontSize: 20)     
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Image.asset('images/pizza.png', fit: BoxFit.cover),
-            const Text(
-              'Hai cliccato su +',
-              style: TextStyle(
-                fontFamily: 'Oswald',
-                fontSize: 30
-              ),
-            ),
+      body: Container(
+        color: Colors.amber,
+        child: const Flex(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          direction: Axis.horizontal,
+          children: [
+            Icon(Icons.sports_baseball, size: 50,),
+            Icon(Icons.local_pizza_rounded, size: 50,),
+            Icon(Icons.discord_sharp, size: 50,)
           ],
         ),
       ),
