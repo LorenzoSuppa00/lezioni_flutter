@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(
-        title: 'Listview'
+        title: 'Dividere i widget'
       ),
     );
   }
@@ -35,27 +35,53 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<int> numeri = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250];
+  List<int> numeri = [0, 1, 51, 75, 100, 125, 150, 175, 200, 225, 250, 200];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         leading: const Icon(Icons.fastfood_rounded),
-        backgroundColor: Colors.blueGrey,
-        foregroundColor: Colors.black,
+        backgroundColor: Colors.orange,
+        foregroundColor: Colors.white,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         elevation: 5, // Altezza ombra AppBar
-        shadowColor: Colors.black,
-        titleTextStyle: const TextStyle(fontFamily: 'Oswald', fontSize: 20, color: Colors.black)     
+        shadowColor: Colors.red,
+        titleTextStyle: const TextStyle(fontFamily: 'Oswald', fontSize: 25, color: Colors.white)     
       ),
     body: ListView.builder(
       padding: const EdgeInsets.all(8),
+      itemCount: numeri.length,
       itemBuilder:(context, index) {
-        return Container(
-          color: Colors.amber,
-          height: 200,
-        );
+        if(numeri[index] % 2 == 0){
+          return Container(
+            color: Colors.green,
+            height: 100,
+            margin: const EdgeInsets.all(8),
+            alignment: Alignment.center,
+            child: Text(
+              '$index',
+              style: const TextStyle(
+                fontSize: 50,
+                color: Colors.white
+              ),
+            ),
+          );
+        } else {
+          return Container(
+            color: Colors.red,
+            height: 100,
+            margin: const EdgeInsets.all(8),
+            alignment: Alignment.center,
+            child: Text(
+              '$index',
+              style: const TextStyle(
+                fontSize: 50,
+                color: Colors.white
+              ),
+            ),
+          );
+        }
       },
     )
     );
